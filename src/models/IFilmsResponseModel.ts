@@ -1,11 +1,12 @@
+
 export interface IFilmsResponseModel {
    page: number;
-   results: Results[];
+   results: IFilm[];
    total_pages: number;
    total_results: number;
 }
 
-export interface Results {
+export interface IFilm{
    adult: boolean;
    backdrop_path: string;
    genre_ids: number[];
