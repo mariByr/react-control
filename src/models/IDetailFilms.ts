@@ -1,9 +1,11 @@
+import type {IGenre} from "./IGenre.ts";
+
 export interface IDetailFilms {
    adult: boolean;
    backdrop_path: string;
    belongs_to_collection: BelongsToCollection;
    budget: number;
-   genres: Genres[];
+   genres: IGenre[];
    homepage?: string;
    id?: number;
    imdb_id?: string;
@@ -17,27 +19,24 @@ export interface IDetailFilms {
    production_countries?: ProductionCountries[];
    release_date?: string;
    revenue?: number;
-   runtime?: number;
-   spoken_languages?: SpokenLanguages[];
-   status?: string;
-   tagline?: string;
-   title?: string;
-   video?: boolean;
-   vote_average?: number;
-   vote_count?: number;
+   runtime: number;
+   spoken_languages: SpokenLanguages[];
+   status: string;
+   tagline: string;
+   title: string;
+   video: boolean;
+   vote_average: number;
+   vote_count: number;
 }
 
 export interface BelongsToCollection {
-   id?: number;
-   name?: string;
-   poster_path?: string;
-   backdrop_path?: string;
+   id: number;
+   name: string;
+   poster_path: string;
+   backdrop_path: string;
 }
 
-export interface Genres {
-   id?: number;
-   name?: string;
-}
+
 
 export interface ProductionCompanies {
    id?: number;
