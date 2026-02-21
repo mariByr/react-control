@@ -9,11 +9,12 @@ export const MoviesPage = () => {
     const[genreId,setGenreId] = useState<number | undefined>(undefined);
     const { searchTerm } = useContext(MyContext)
     const { data } = useMoviesList({page, genreId, searchTerm})
-
+    console.log("MOVIES DATA:", data);
     return (
         <div>
         <GenreList setGenreId={setGenreId} key={genreId} />
-        <MoviesList films={data?.films ?? []} />
+        <MoviesList films={data?.results ?? []} />
+
         </div>
     );
 };

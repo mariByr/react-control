@@ -9,7 +9,7 @@ function App() {
     const [themeColor,setThemeColor]=useState<string>('light');
     const [searchTerm, setSearchTerm] = useState<string>("");
   return (
-    <div>
+    <div  className="min-h-screen bg-gray-300 text-gray-900">
         <MyContext.Provider value={{
             theme:themeColor,
             changeTheme:(theme: string) => setThemeColor(theme),

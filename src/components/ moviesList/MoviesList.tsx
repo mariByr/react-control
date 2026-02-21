@@ -1,6 +1,4 @@
 
-
-
 import type {FC} from "react";
 import type {IMovie} from "../../models/IMovie.ts";
 
@@ -9,6 +7,7 @@ interface Props {
 }
 
 export const MoviesList: FC<Props> = ({ films }) => {
+
  return (
      <div>
       {films.map(film => (

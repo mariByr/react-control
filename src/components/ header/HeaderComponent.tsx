@@ -8,7 +8,7 @@ export const HeaderComponent = () => {
     const location = useLocation();
 
     // перевіряємо сторінку
-    const isMoviesPage = location.pathname === "/movies";
+    const isMoviesPage = location.pathname === "/";
     const isDetailsPage = location.pathname.includes("/movies/");
 
     return (
