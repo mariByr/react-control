@@ -1,8 +1,8 @@
 import {createContext} from "react";
 
 interface ContextValueType {
-    theme: string;
-    changeTheme: (theme: string) => void;
+    theme: "light" | "dark";
+    changeTheme: ( theme: "light" | "dark") => void;
     searchTerm: string;
     setSearchTerm: (value: string) => void;
 }

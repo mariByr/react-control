@@ -2,36 +2,33 @@
 import {useGenres} from "../queries/genre.queries.ts";
 import type {FC} from "react";
 import type {IGenre} from "../models/IGenre.ts";
-
-
+import {GenreBadge} from "./GenreBange.tsx";
 interface Props {
-    setGenreId: (id: number | undefined) => void;
+    genreId: number ;
+    setGenreId: (id: number) => void;
 }
-export const GenreList: FC<Props> = ({ setGenreId }) => {
+export const GenreList: FC<Props> = ({ genreId, setGenreId }) => {
     const {data, isLoading, isError} = useGenres();
-
     if (isLoading) return <div>Loading genres...</div>;
     if (isError) return <div>Error loading genres</div>;
-
     console.log("GENRES DATA:", data);
     return (
-        <div>
-            <button onClick={() => setGenreId(undefined)}>
-                All
-            </button>
+        <div className="flex flex-wrap justify-between gap-2">
 
-            {(data ?? []).map((genre: IGenre) => (
-                <button key={genre.id} onClick={() => setGenreId(genre.id)} style={{
-                    margin: "4px",
-                    padding: "6px 12px",
-                    borderRadius: "6px",
-                    border: "1px solid #ccc",
-                    background: "#f5f5f5",
-                    cursor: "pointer"
-                }}>
-                    {genre.name}
+            <GenreBadge
+                id={0}
+                name="All"
+                onSelect={setGenreId}
+                active={genreId === 0}
+            />
 
-                </button>
-            ))}
+            {(data ?? []).map((genre: IGenre) => (<GenreBadge
+    key={genre.id}
+    id={genre.id}
+    name={genre.name}
+    onSelect={setGenreId}
+    active={genreId === genre.id}
+  />
+))}
         </div>
     )}

@@ -6,22 +6,27 @@ import {useState} from "react";
 import { MyContext } from './context/MyContext.Provider.tsx';
 
 function App() {
-    const [themeColor,setThemeColor]=useState<string>('light');
     const [searchTerm, setSearchTerm] = useState<string>("");
+    const [theme, setTheme] = useState<"light" | "dark">("light");
+    const toggleTheme = () => {
+        setTheme(prev => (prev === "light" ? "dark" : "light"));
+    };
   return (
-    <div  className="min-h-screen bg-gray-300 text-gray-900">
+    <div className={`app ${theme}`}>
         <MyContext.Provider value={{
-            theme:themeColor,
-            changeTheme:(theme: string) => setThemeColor(theme),
+            theme:theme,
+            changeTheme: (newTheme) => setTheme(newTheme),
             searchTerm: searchTerm,
             setSearchTerm: setSearchTerm,
 
         }}>
-            <HeaderComponent />
-            <Outlet/>
+           <HeaderComponent  theme={theme} toggleTheme={toggleTheme}/>
+            <main><Outlet/></main>
         </MyContext.Provider>
 
+<footer>
 
+</footer>
 
     </div>
   )

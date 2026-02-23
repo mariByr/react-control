@@ -1,1 +1,12 @@
 
+main{
+    padding: 50px 20px;
+}
+.app.dark{
+    background-color: #d1d1d1;
+    color:black;
+}
+.app.light{
+    background-color: #ffffff;
+    color: #111;
+}

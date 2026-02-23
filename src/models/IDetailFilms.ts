@@ -7,7 +7,7 @@ export interface IDetailFilms {
    budget: number;
    genres: IGenre[];
    homepage?: string;
-   id?: number;
+   id: number;
    imdb_id?: string;
    origin_country?: string[];
    original_language?: string;

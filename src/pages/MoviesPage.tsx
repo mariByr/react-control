@@ -4,17 +4,24 @@ import {useMoviesList} from "../queries/films.queries.tsx";
 import {MyContext} from "../context/MyContext.Provider.tsx";
 import {GenreList} from "../components/GenreList.tsx";
 
+import {Pagination} from "../components/Pagination.tsx";
+
 export const MoviesPage = () => {
-    const [page] = useState(1);
-    const[genreId,setGenreId] = useState<number | undefined>(undefined);
+    const [page,setPage] = useState(1);
+       const[genreId,setGenreId] = useState<number>(0);
     const { searchTerm } = useContext(MyContext)
     const { data } = useMoviesList({page, genreId, searchTerm})
     console.log("MOVIES DATA:", data);
     return (
-        <div>
-        <GenreList setGenreId={setGenreId} key={genreId} />
+        <div className={'flex  flex-col gap-8'}>
+        <GenreList  genreId={ genreId}
+                    setGenreId={ setGenreId} key={genreId} />
         <MoviesList films={data?.results ?? []} />
-
+            <Pagination
+                page={page}
+                totalPages={data?.total_pages ?? 1}
+                onPageChange={setPage}
+            />
         </div>
     );
 };
