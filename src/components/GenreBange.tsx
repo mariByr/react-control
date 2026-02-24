@@ -4,7 +4,7 @@ type GenreBadgeProps = {
     id:number;
 name: string;
     active?: boolean;
-    onSelect: (id: number ) => void;
+    onSelect?: (id: number ) => void;
 };
 
 export const GenreBadge = ({
@@ -15,7 +15,7 @@ export const GenreBadge = ({
 
     return (
         <span
-            onClick={() => onSelect(id)}
+            onClick={() => onSelect?.(id)}
             className={`
         inline-flex justify-center items-center rounded-md px-2 py-1 text-xs font-medium cursor-pointer w-20 h-10
         ${active

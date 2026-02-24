@@ -1,0 +1,12 @@
+.movie-detail{
+    margin: 0 auto;
+    width:80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.movie-detail img{
+    width: 400px;
+    height: 600px;
+    object-fit: cover;
+}
