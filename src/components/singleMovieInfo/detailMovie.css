@@ -2,11 +2,25 @@
     margin: 0 auto;
     width:80%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+   justify-content: space-between;
+    gap:30px;
+
 }
 .movie-detail img{
     width: 400px;
     height: 600px;
     object-fit: cover;
+}
+.movie-info {
+    width: 50%;
+}
+.video{
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+}
+
+.video h2{
+    color:purple;
+    font-size: 32px;
 }

@@ -1,4 +1,4 @@
-import type {IMovie} from "../../models/IMovie.ts";
+import type {IMovie} from "../../models/films/IMovie.ts";
 import type {FC} from "react";
 import {PosterPreview} from "../posterPreview-movie image/PosterPreview.tsx";
 import {StarsRating} from "../StarsRating.tsx";

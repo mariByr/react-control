@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {MyContext} from "../../context/MyContext.Provider.tsx";
 import'./headerComponent.css'
 import {UserComponent} from "../user/UserComponent.tsx";
@@ -22,7 +22,10 @@ export const HeaderComponent = ({theme,toggleTheme}: HeaderComponentProps) => {
         <header>
 
             {/* ЛОГО  */}
-            <h2>Movie App</h2>
+            <Link to="/">
+
+                <h2 className={'logo'}>Movie Rock App</h2>
+            </Link>
 
             {/*інпут для пошуку*/}
             {isMoviesPage && (
@@ -37,12 +40,12 @@ export const HeaderComponent = ({theme,toggleTheme}: HeaderComponentProps) => {
             {/* На DetailsPage можна показати кнопку назад */}
             {isDetailsPage && (
                 <span style={{fontSize: "14px", opacity: 0.7}}>
-          Details Page
+           Page
         </span>
             )}
 
             {/*перемикач теми*/}
-            <button className={'theme-togle'} onClick={toggleTheme}>
+            <button className={'theme-toggle'} onClick={toggleTheme}>
                 {theme === "light" ? "🌙" : "☀️"}
             </button>
             <UserComponent name={'MARY'}

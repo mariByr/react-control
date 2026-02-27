@@ -4,16 +4,24 @@ header{padding: 20px;
     align-items: center;
     height: 100px;
 }
-.theme-togle{
+
+.logo {
+    text-decoration: none;
+    color: purple;
+    font-size: 50px;
+}
+.theme-toggle{
     width: 70px;
     height: 36px;
     border: none;
+    display: flex;
+    justify-content: center;
     border-radius: 999px;
     background: #000;
     position: relative;
     cursor: pointer;
     padding: 0;
-    display: inline-flex;
+
     align-items: center;
 }
 header input{

@@ -1,6 +1,6 @@
 
 import type {FC} from "react";
-import type {IMovie} from "../../models/IMovie.ts";
+import type {IMovie} from "../../models/films/IMovie.ts";
 import {MovieListCard} from "../movieCard/MovieListCard.tsx";
 
 interface Props {

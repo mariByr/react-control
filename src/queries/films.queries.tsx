@@ -1,6 +1,6 @@
 import {useQuery} from "@tanstack/react-query";
 import {getMovies, searchMovies} from "../services/api.service.tsx";
-import type {IFilmsResponseModel} from "../models/IFilmsResponseModel.ts";
+import type {IFilmsResponseModel} from "../models/films/IFilmsResponseModel.ts";
 import { keepPreviousData } from '@tanstack/react-query';
 interface MoviesQueryParams {
     page: number;

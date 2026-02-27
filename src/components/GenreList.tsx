@@ -1,7 +1,7 @@
 
 import {useGenres} from "../queries/genre.queries.ts";
 import type {FC} from "react";
-import type {IGenre} from "../models/IGenre.ts";
+import type {IGenre} from "../models/genre/IGenre.ts";
 import {GenreBadge} from "./GenreBange.tsx";
 interface Props {
     genreId: number ;
