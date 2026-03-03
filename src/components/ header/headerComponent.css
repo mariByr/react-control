@@ -1,4 +1,44 @@
-header{padding: 20px;
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    gap: 10px;
+}
+
+.logo {
+    text-decoration: none;
+    color: purple;
+    font-size: 28px; /* мобільна версія */
+}
+
+header span{
+    font-size: 18px;
+}
+
+.theme-toggle {
+    width: 40px;
+    height: 20px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    border-radius: 999px;
+    background: #000;
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    align-items: center;
+}
+
+#search{
+    padding: 6px 10px;
+    width: 200px;
+    border-radius: 8px;
+    border: 1px solid gray;
+}
+
+@media (min-width: 768px) {
+header{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,6 +50,12 @@ header{padding: 20px;
     color: purple;
     font-size: 50px;
 }
+
+ header span{
+    font-size:20px;
+    color: purple;
+}
+
 .theme-toggle{
     width: 70px;
     height: 36px;
@@ -21,13 +67,12 @@ header{padding: 20px;
     position: relative;
     cursor: pointer;
     padding: 0;
-
     align-items: center;
 }
+
 header input{
     padding: 8px 12px;
     width: 300px;
     border-radius: 8px;
     border: 1px solid gray;
-
-}
+}}

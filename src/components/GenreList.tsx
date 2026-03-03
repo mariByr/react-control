@@ -11,17 +11,15 @@ export const GenreList: FC<Props> = ({ genreId, setGenreId }) => {
     const {data, isLoading, isError} = useGenres();
     if (isLoading) return <div>Loading genres...</div>;
     if (isError) return <div>Error loading genres</div>;
-    console.log("GENRES DATA:", data);
-    return (
-        <div className="flex flex-wrap justify-between gap-2">
 
+    return (
+        <div className="grid grid-cols-3 gap-2 justify-items-center mx-auto md:flex md:flex-wrap md:justify-between">
             <GenreBadge
                 id={0}
                 name="All"
                 onSelect={setGenreId}
                 active={genreId === 0}
             />
-
             {(data ?? []).map((genre: IGenre) => (<GenreBadge
     key={genre.id}
     id={genre.id}

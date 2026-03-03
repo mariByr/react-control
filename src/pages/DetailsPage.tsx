@@ -4,6 +4,7 @@ import {useFilmDetail} from "../queries/filmInfo.queries.tsx";
 import {useReviews }from "../queries/reviews.queries.tsx";
 import type {IVideo} from "../models/videoModels/IVideo.ts";
 import {useVideo} from "../queries/video.queries.tsx";
+import {useCast} from "../queries/actors.queries.tsx";
 
 export const DetailsPage = () => {
     const {id} = useParams();
@@ -13,6 +14,7 @@ export const DetailsPage = () => {
     const { data: videoData, isLoading:videoLoading, isError:videoError } = useVideo(movieId);
     const videos:IVideo[] = videoData?.results ?? [];
     const{data: reviews ,isLoading:reviewLoading,isError:reviewError}=useReviews(movieId)
+    const { data: cast } = useCast(Number(id));
     if (!id) return <div>No id</div>;
     if (movieLoading) return <div>Loading...</div>;
     if(movieError)return <div>Error: {reviewError}</div>;
@@ -30,6 +32,7 @@ export const DetailsPage = () => {
                     movie={movie}
                     videos={videos}
                     reviews={reviews??[]}
+                    cast={cast}
                 />}
 
         </div>

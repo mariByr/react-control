@@ -12,14 +12,20 @@ export const MoviesPage = () => {
        const[genreId,setGenreId] = useState<number>(0);
     const { searchTerm } = useContext(MyContext)
     const { data } = useMoviesList({page, genreId, searchTerm})
-
+    const films = data?.results;
 
     return (
-        <div className={'flex  flex-col gap-8'}>
+        <div className={'flex  flex-col gap-8  items-center justify-center'}>
         <GenreList  genreId={ genreId}
                     setGenreId={ setGenreId} key={genreId} />
 
-        <MoviesList films={data?.results ?? []} />
+            {searchTerm && films && films.length === 0 && (
+                <p className={'text-red-500'}>Nothing was found for your request.</p>
+            )}
+
+            {films && films.length > 0 && (
+                <MoviesList films={films} />
+            )}
 
             <Pagination
                 page={page}

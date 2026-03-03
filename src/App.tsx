@@ -4,6 +4,7 @@ import {HeaderComponent} from "./components/ header/HeaderComponent.tsx";
 import {Outlet} from "react-router-dom";
 import {useState} from "react";
 import { MyContext } from './context/MyContext.Provider.tsx';
+import {Footer} from "./footer/Footer.tsx";
 
 function App() {
     const [searchTerm, setSearchTerm] = useState<string>("");
@@ -24,9 +25,7 @@ function App() {
             <main><Outlet/></main>
         </MyContext.Provider>
 
-<footer>
-
-</footer>
+<Footer/>
 
     </div>
   )

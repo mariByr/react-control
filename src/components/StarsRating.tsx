@@ -5,5 +5,5 @@ interface IStarsRatingProps {
 }
 
 export const StarsRating: FC<IStarsRatingProps> = ({ rating }) => {
-    return <div>⭐ {rating}</div>;
+    return <div className={'mb-4'}>⭐ {rating}</div>;
 };

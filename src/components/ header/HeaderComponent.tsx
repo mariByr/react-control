@@ -31,18 +31,15 @@ export const HeaderComponent = ({theme,toggleTheme}: HeaderComponentProps) => {
             {isMoviesPage && (
                 <input
                     type="text"
+                    name="search"
+                    id="search"
                     placeholder="Search movies..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
             )}
 
-            {/* На DetailsPage можна показати кнопку назад */}
-            {isDetailsPage && (
-                <span style={{fontSize: "14px", opacity: 0.7}}>
-           Page
-        </span>
-            )}
+            {isDetailsPage && (<span>Detail information</span>)}
 
             {/*перемикач теми*/}
             <button className={'theme-toggle'} onClick={toggleTheme}>

@@ -1,0 +1,25 @@
+.list-grid{
+        display: grid;
+        gap: 24px;
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+        justify-items: center;
+   }
+
+@media (min-width: 481px) {
+    .list-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 768px) {
+    .list-grid {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0 16px;
+    }}
+    /* 1280 і більше */
+    @media (min-width: 1280px) {
+        .list-grid {
+            grid-template-columns: repeat(5, 1fr);
+            padding: 0 16px;
+        }
+    }

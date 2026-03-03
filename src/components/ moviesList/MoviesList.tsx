@@ -2,7 +2,7 @@
 import type {FC} from "react";
 import type {IMovie} from "../../models/films/IMovie.ts";
 import {MovieListCard} from "../movieCard/MovieListCard.tsx";
-
+import './moviList.css'
 interface Props {
  films: IMovie[];
 }
@@ -10,7 +10,7 @@ interface Props {
 export const MoviesList: FC<Props> = ({ films }) => {
 
  return (
-     <div className={'grid grid-cols-5 gap-8 justify-items-center'}>
+     <div className={'list-grid'}>
       {
           films.map((movie:IMovie) => (
                   <MovieListCard key={movie.id} movie={movie}/>))

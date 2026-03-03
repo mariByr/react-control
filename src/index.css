@@ -1,12 +1,13 @@
 @import "tailwindcss";
-#root {
-  width:98%;
-  margin:0 auto;
-  padding: 10px;
+html, body, #root {
+  width: 100%;
 }
+
 body {
   margin: 0;
-}
+  display: block;
+ }
+
 * {
   margin: 0;
   padding: 0;

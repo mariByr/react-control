@@ -21,7 +21,7 @@ export const Pagination = ({
     );
 
     return (
-        <div style={{ display: "flex", gap: "8px" }}>
+        <div className={'flex gap-6'}>
 
             {/* Prev */}
             <button

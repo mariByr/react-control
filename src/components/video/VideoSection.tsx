@@ -1,5 +1,5 @@
 import type {IVideo} from "../../models/videoModels/IVideo.ts";
-
+import './video.css'
 interface VideoSectionProps {
     videos: IVideo[];
 }
@@ -15,10 +15,9 @@ interface VideoSectionProps {
     }
 
     return (
-        <div style={{ marginTop: "20px" }}>
+        <div className="trailer-container">
             <iframe
-                width="100%"
-                height="400"
+                className="trailer-frame"
                 src={`https://www.youtube.com/embed/${trailer.key}`}
                 title="Movie trailer"
                 allowFullScreen

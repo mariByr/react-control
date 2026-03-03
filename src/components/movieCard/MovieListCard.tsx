@@ -14,7 +14,7 @@ export const MovieListCard:FC<MovieListCardProps> = ({movie} ) => {
         <Link to={`/movies/${movie.id}`}>
         <div className={'card'}>
             <PosterPreview posterPath={movie.poster_path} />
-            <h2>{movie.title}</h2>
+            <h2>{movie.title.slice(0, 45)}</h2>
             <StarsRating rating={movie.vote_average} />
         </div>
         </Link>

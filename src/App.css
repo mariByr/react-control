@@ -1,6 +1,10 @@
-
+.app {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+}
 main{
-    padding: 50px 20px;
+    padding-top: 20px;
 }
 .app.dark{
     background-color: #d1d1d1;
