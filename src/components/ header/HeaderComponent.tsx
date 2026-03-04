@@ -1,17 +1,38 @@
-import {useContext} from "react";
-import {Link, useLocation} from "react-router-dom";
-import {MyContext} from "../../context/MyContext.Provider.tsx";
+
+import {Link, useLocation, useSearchParams} from "react-router-dom";
+import React from "react";
 import'./headerComponent.css'
 import {UserComponent} from "../user/UserComponent.tsx";
+
 
 
 interface HeaderComponentProps {
     theme?: "light" | "dark"
     toggleTheme:() => void;
 }
-
 export const HeaderComponent = ({theme,toggleTheme}: HeaderComponentProps) => {
-    const {searchTerm, setSearchTerm} = useContext(MyContext);
+    const [params, setParams] = useSearchParams();
+    const searchTerm= params.get("search") || "";
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+        const value = e.target.value;
+
+        setParams((prev: URLSearchParams) => {
+
+            if (value) {
+                prev.set("search", value);
+                prev.delete("genre");
+            } else {
+                prev.delete("search");
+            }
+
+            prev.set("page", "1");
+
+            return prev;
+
+        });
+
+    };
     const location = useLocation();
 
     // перевіряємо сторінку
@@ -35,7 +56,7 @@ export const HeaderComponent = ({theme,toggleTheme}: HeaderComponentProps) => {
                     id="search"
                     placeholder="Search movies..."
                     value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
+                    onChange={handleSearch}
                 />
             )}
 

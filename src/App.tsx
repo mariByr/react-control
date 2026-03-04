@@ -7,7 +7,7 @@ import { MyContext } from './context/MyContext.Provider.tsx';
 import {Footer} from "./footer/Footer.tsx";
 
 function App() {
-    const [searchTerm, setSearchTerm] = useState<string>("");
+
     const [theme, setTheme] = useState<"light" | "dark">("light");
     const toggleTheme = () => {
         setTheme(prev => (prev === "light" ? "dark" : "light"));
@@ -17,11 +17,9 @@ function App() {
         <MyContext.Provider value={{
             theme:theme,
             changeTheme: (newTheme) => setTheme(newTheme),
-            searchTerm: searchTerm,
-            setSearchTerm: setSearchTerm,
-
         }}>
-           <HeaderComponent  theme={theme} toggleTheme={toggleTheme}/>
+           <HeaderComponent  theme={theme} toggleTheme={toggleTheme}
+           />
             <main><Outlet/></main>
         </MyContext.Provider>
 

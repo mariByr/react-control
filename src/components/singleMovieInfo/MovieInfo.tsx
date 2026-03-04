@@ -21,6 +21,7 @@ interface MovieInfoProps {
 export const MovieInfo: FC<MovieInfoProps> = ({movie, videos, reviews, cast}) => {
 
     const [showReviews, setShowReviews] = useState(false);
+
     return (
 
         <div className={'movie-detail'}>
@@ -58,14 +59,16 @@ export const MovieInfo: FC<MovieInfoProps> = ({movie, videos, reviews, cast}) =>
                 <button onClick={() => setShowReviews(prev => !prev)}>
                     {showReviews ? "Hide reviews" : "Show reviews"}
                 </button>
-                {showReviews && (
-                    <div>
-                        {reviews.map((review) => (<ReviewsSection key={review.id} review={review}/>)
-                        )}
-                    </div>
+<div>
+                {reviews.length === 0 ? (
+                    <p>Your review will be the first</p>
+                ) : (
+                    reviews.map(review => (
+                        <ReviewsSection key={review.id} review={review} />
+                    ))
                 )}
-            </div>
-
         </div>
-    );
-};
+            </div>
+        </div>
+    )
+}

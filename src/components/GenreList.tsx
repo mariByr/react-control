@@ -5,9 +5,9 @@ import type {IGenre} from "../models/genre/IGenre.ts";
 import {GenreBadge} from "./GenreBange.tsx";
 interface Props {
     genreId: number ;
-    setGenreId: (id: number) => void;
+    onGenreChange: (id: number) => void
 }
-export const GenreList: FC<Props> = ({ genreId, setGenreId }) => {
+export const GenreList: FC<Props> = ({ genreId, onGenreChange }) => {
     const {data, isLoading, isError} = useGenres();
     if (isLoading) return <div>Loading genres...</div>;
     if (isError) return <div>Error loading genres</div>;
@@ -17,14 +17,14 @@ export const GenreList: FC<Props> = ({ genreId, setGenreId }) => {
             <GenreBadge
                 id={0}
                 name="All"
-                onSelect={setGenreId}
+                onSelect={onGenreChange}
                 active={genreId === 0}
             />
             {(data ?? []).map((genre: IGenre) => (<GenreBadge
     key={genre.id}
     id={genre.id}
     name={genre.name}
-    onSelect={setGenreId}
+    onSelect={onGenreChange}
     active={genreId === genre.id}
   />
 ))}
