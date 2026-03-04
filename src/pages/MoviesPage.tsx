@@ -11,7 +11,11 @@ export const MoviesPage = () => {
     const [page,setPage] = useState(1);
        const[genreId,setGenreId] = useState<number>(0);
     const { searchTerm } = useContext(MyContext)
-    const { data } = useMoviesList({page, genreId, searchTerm})
+    const { data,isLoading, isError } = useMoviesList({page, genreId, searchTerm})
+    if (isLoading) return <div>Loading...</div>;
+
+    if (isError) return <div>Error loading movies</div>;
+
     const films = data?.results;
 
     return (
