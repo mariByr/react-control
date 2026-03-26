@@ -1,10 +1,9 @@
 
+
 import {Link, useLocation, useSearchParams} from "react-router-dom";
 import React from "react";
 import'./headerComponent.css'
 import {UserComponent} from "../user/UserComponent.tsx";
-
-
 
 interface HeaderComponentProps {
     theme?: "light" | "dark"

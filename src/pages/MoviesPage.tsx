@@ -6,6 +6,7 @@ import {GenreList} from "../components/GenreList.tsx";
 
 import {Pagination} from "../components/pagination/Pagination.tsx";
 import {useSearchParams} from "react-router-dom";
+import { useDebounce } from "@uidotdev/usehooks";
 
 
 export const MoviesPage = () => {
@@ -14,8 +15,9 @@ export const MoviesPage = () => {
     const page = Number(params.get("page")) || 1;
     const genreId = Number(params.get("genre")) || 0;
     const searchTerm = params.get("search") || "";
+    const debouncedSearch = useDebounce(searchTerm, 2000);
 
-    const { data,isLoading, isError } = useMoviesList({page, genreId, searchTerm})
+    const { data,isLoading, isError } = useMoviesList({page, genreId, searchTerm: debouncedSearch})
     if (isLoading) return <div>Loading...</div>;
 
     if (isError) return <div>Error loading movies</div>;
